@@ -1,0 +1,7 @@
+*.in
+*.out
+*.txt
+as
+*.o
+*.pyc
+
