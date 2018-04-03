@@ -1,4 +1,7 @@
 *.in
+*.log
+tags
+*.swp
 *.out
 *.txt
 as
