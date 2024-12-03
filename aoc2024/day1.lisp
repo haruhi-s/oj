@@ -1000,14 +1000,15 @@
                   97288   51968))
 
 (defun solve1 (input)
-  (let* ((l (s:plist-keys *input*))
-         (r (s:plist-values *input*)))
-    (reduce #'+ (mapcar (compose #'abs #'-) (sort l #'<) (sort r #'<)))))
+(let* ((l (s:plist-keys input))
+         (r (s:plist-values input)))
+    (reduce #'+ (mapcar (lambda (x y)
+                          (abs (- x y)))
+                        (sort l #'<) (sort r #'<)))))
 
 (defun solve2 (input)
-  (let* ((l (s:plist-keys *input*))
-         (r (s:plist-values *input*)))
-    (iter
-      (print "1")
-      (for a in l)
+  (let* ((l (s:plist-keys input))
+         (r (s:plist-values input)))
+    (iter (for a in l)
       (sum (iter (for b in r) (when (= a b) (sum b)))))))
+
